@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Vector2 moveVector = new Vector2(horizontalMovement, verticalMovement);
+
         rb.velocity = moveVector * movementSpeed;
 
         //mouse controls

@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class PlayerAttack1ProjectileController : MonoBehaviour
 {
-    float bulletSpeed = 15f;
-    float decreaseSpeed = 0.9f;
+    float bulletSpeed = 20f;
     Rigidbody2D rb;
     float destroyDelay = 3f;
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.name = "PlayerAttack1Projectile";
         Destroy(gameObject, destroyDelay);
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity=transform.up*bulletSpeed;
-    }
-
-    void FixedUpdate()
-    {
-        
+        rb.velocity = transform.up * bulletSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject);
     }
