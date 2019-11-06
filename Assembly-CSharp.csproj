@@ -60,14 +60,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Enemy1_IQ1Controller.cs" />
-    <Compile Include="Assets\Enemy1_IQ2Controller.cs" />
-    <Compile Include="Assets\Enemy1_IQ3Controller.cs" />
-    <Compile Include="Assets\EnemySpawnerExample.cs" />
+    <Compile Include="Assets\Enemy2_IQ1Controller.cs" />
+    <Compile Include="Assets\Enemy2_ProjectileController.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ1Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ2Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ3Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\EnemySpawnerExample.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Obstacle Scripts\Obstacle1Controller.cs" />
+    <Compile Include="Assets\Scripts\Obstacle Scripts\ObstacleSpawnerExample.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerAbilities.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerAttack1ProjectileController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\PowerUp Scripts\PowerUpController.cs" />
+    <Compile Include="Assets\Scripts\PowerUp Scripts\spawnPowerUp.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity Projects/Space Shooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

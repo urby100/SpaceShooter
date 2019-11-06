@@ -13,10 +13,7 @@ public class PlayerAbilities : MonoBehaviour
     float attackSpeedAttack1 = 0.07f;
     float attack1NextAttack;
 
-    public GameObject attack2SpawnPoint;
-    public Transform attack2HitPoint;
-    private LineRenderer attack2LineRenderer;
-    BoxCollider2D attack2LineCollider;
+    public GameObject attack2Laser;
 
 
     float speedMultiplier = 2;
@@ -28,12 +25,7 @@ public class PlayerAbilities : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        attack2LineRenderer = attack2SpawnPoint.GetComponent<LineRenderer>();
-        attack2LineRenderer.enabled = false;
-        attack2LineRenderer.useWorldSpace = true;
-
-        attack2LineCollider = attack2SpawnPoint.GetComponent<BoxCollider2D>();
-        attack2LineCollider.enabled = false;
+        attack2Laser.SetActive(false);
     }
     void FixedUpdate()
     {
@@ -50,26 +42,15 @@ public class PlayerAbilities : MonoBehaviour
                 attack1NextAttack = Time.time + attackSpeedAttack1;
             }
         }
-
-        //line rendered
-        RaycastHit2D hit = Physics2D.Raycast(attack2SpawnPoint.transform.position, attack2SpawnPoint.transform.up);
-        attack2HitPoint.position = attack2SpawnPoint.transform.up * 20 + attack2SpawnPoint.transform.position;
-        attack2LineRenderer.SetPosition(0, attack2SpawnPoint.transform.position);
-        attack2LineRenderer.SetPosition(1, attack2HitPoint.position);
-
-        //line collider
-
-
+        
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            attack2LineCollider.enabled = true;
-            attack2LineRenderer.enabled = true;
+            attack2Laser.SetActive(true);
         }
         else
         {
-            attack2LineCollider.enabled = false;
-            attack2LineRenderer.enabled = false;
+            attack2Laser.SetActive(false);
         }
     }
 

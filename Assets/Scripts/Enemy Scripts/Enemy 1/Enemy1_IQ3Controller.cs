@@ -2,30 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1_IQ2Controller : MonoBehaviour
+public class Enemy1_IQ3Controller : MonoBehaviour
 {
     float health = 100f;
-    float damageTakeAmount = 30f;
+    float damageTakeAmount = 20f;
     float damageTickDelay = 0.03f;
     float damageTickTime;
+    float scoreMultiplier = 30f;
 
     public GameObject player;
+    public GameManager GM;
 
     Rigidbody2D rb;
-    float movementSpeed = 13;
+    float movementSpeed = 16;
 
 
     float restrictHorizontal = 12f;
     float restrictVertical = 7f;
 
-    float rotationSpeed = 1f;
+    float rotationSpeed = 3f;
 
 
     // Start is called before the first frame update
 
     void Start()
     {
-        gameObject.name = "Enemy1_IQ2";
+        gameObject.name = "Enemy1_IQ3";
         rb = GetComponent<Rigidbody2D>();
         setPath();
     }
@@ -41,10 +43,10 @@ public class Enemy1_IQ2Controller : MonoBehaviour
         }
         //rotate towards player slowly
         Vector2 vectorToTarget = player.transform.position - transform.position;
-        float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x)*Mathf.Rad2Deg)-90;
+        float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-        
+
         rb.velocity = transform.up * movementSpeed;
 
     }
@@ -61,11 +63,7 @@ public class Enemy1_IQ2Controller : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("PlayerProjectiles"))
         {
             //Destroy(collision.gameObject);
-            health -= damageTakeAmount;
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-            }
+            takeDamage();
         }
         else
         {
@@ -79,11 +77,7 @@ public class Enemy1_IQ2Controller : MonoBehaviour
         {
             if (Time.time > damageTickTime)
             {
-                health -= damageTakeAmount;
-                if (health <= 0)
-                {
-                    Destroy(gameObject);
-                }
+                takeDamage();
                 damageTickTime = Time.time + damageTickDelay;
             }
             //Destroy(collision.gameObject);
@@ -93,5 +87,15 @@ public class Enemy1_IQ2Controller : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+    void takeDamage()
+    {
+        health -= damageTakeAmount;
+        if (health <= 0)
+        {
+            GetComponent<spawnPowerUp>().spawn(player);
+            GM.AddScore(scoreMultiplier);
+            Destroy(gameObject);
+        }
     }
 }
