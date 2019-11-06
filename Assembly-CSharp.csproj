@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Enemy2_IQ1Controller.cs" />
+    <Compile Include="Assets\Enemy2_IQ2Controller.cs" />
+    <Compile Include="Assets\Enemy2_IQ3Controller.cs" />
     <Compile Include="Assets\Enemy2_ProjectileController.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ1Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ2Controller.cs" />
