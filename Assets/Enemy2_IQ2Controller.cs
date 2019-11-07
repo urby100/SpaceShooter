@@ -117,6 +117,12 @@ public class Enemy2_IQ2Controller : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.name == "PlayerShield" || collision.gameObject.name == "PlayerShieldAttack")
+        {
+            GetComponent<spawnPowerUp>().spawn(player);
+            GM.AddScore(scoreMultiplier);
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

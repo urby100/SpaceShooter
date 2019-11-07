@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Image healthBar;
+    public Image nitroFuelBar;
+    public Image laserFuelBar;
     public Image shieldBar;
     public Text scoreText;
 
@@ -45,13 +47,15 @@ public class GameManager : MonoBehaviour
         playerAbilitiesScript = player.GetComponent<PlayerAbilities>();
         previousHealthPoints = playerControllerScript.health;
         previousShieldPoints = playerControllerScript.shield;
-        updateHealthBar();
-        updateShieldBar();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        nitroFuelBar.fillAmount = playerAbilitiesScript.nitroFuel / 100;
+        laserFuelBar.fillAmount = playerAbilitiesScript.laserFuel / 100;
+        shieldBar.fillAmount = playerControllerScript.shield / 100;
+        healthBar.fillAmount = playerControllerScript.health / 100;
         if (Time.time > noDmgTakenTime)//če v naslednjih noDmgTakenForXSeconds sekundah ne dobi player dmga se score multiplier poveča za 1
         {
             setNoDmgMultiplier(1);
@@ -91,13 +95,5 @@ public class GameManager : MonoBehaviour
     public void setNoDmgMultiplier(float addToScoreMultiplier)
     {
         noDmgTakenMultiplier = Mathf.Clamp(noDmgTakenMultiplier + addToScoreMultiplier, noDmgTakenMultiplierMin, noDmgTakenMultiplierMax);
-    }
-    public void updateHealthBar()
-    {
-        healthBar.fillAmount = playerControllerScript.health / 100;
-    }
-    public void updateShieldBar()
-    {
-        shieldBar.fillAmount = playerControllerScript.shield / 100;
     }
 }

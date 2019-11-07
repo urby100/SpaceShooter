@@ -64,6 +64,11 @@
     <Compile Include="Assets\Enemy2_IQ2Controller.cs" />
     <Compile Include="Assets\Enemy2_IQ3Controller.cs" />
     <Compile Include="Assets\Enemy2_ProjectileController.cs" />
+    <Compile Include="Assets\Enemy3_Controller.cs" />
+    <Compile Include="Assets\Enemy3ProjectileController.cs" />
+    <Compile Include="Assets\Obstacle2Controller.cs" />
+    <Compile Include="Assets\PlayerShieldAttackProjectileController.cs" />
+    <Compile Include="Assets\PlayerShieldController.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ1Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ2Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ3Controller.cs" />
@@ -77,6 +82,7 @@
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PowerUp Scripts\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\PowerUp Scripts\spawnPowerUp.cs" />
+    <Compile Include="Assets\WarningSignController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity Projects/Space Shooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

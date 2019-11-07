@@ -12,6 +12,22 @@ public class EnemySpawnerExample : MonoBehaviour
     public GameObject enemies;
     public GameObject spawnLines;
 
+    public GameObject enemy3_IQ1_Prefab;
+    public GameObject enemy3_IQ2_Prefab;
+    public GameObject enemy3_IQ3_Prefab;
+
+    float spawnEnemy3_IQ1_Delay = 20f;
+    float spawnEnemy3_IQ1_Time;
+    int spawnEnemy3_IQ1_numberOfMaxSpawns = 3;
+
+    float spawnEnemy3_IQ2_Delay = 25f;
+    float spawnEnemy3_IQ2_Time;
+    int spawnEnemy3_IQ2_numberOfMaxSpawns = 2;
+
+    float spawnEnemy3_IQ3_Delay = 30f;
+    float spawnEnemy3_IQ3_Time;
+    int spawnEnemy3_IQ3_numberOfMaxSpawns = 1;
+
     public GameObject enemy2_IQ1_Prefab;
     public GameObject enemy2_IQ2_Prefab;
     public GameObject enemy2_IQ3_Prefab;
@@ -49,6 +65,10 @@ public class EnemySpawnerExample : MonoBehaviour
     void Start()
     {
 
+        spawnEnemy3_IQ1_Time = Time.time + 2;
+        spawnEnemy3_IQ2_Time = Time.time + 4;
+        spawnEnemy3_IQ3_Time = Time.time + 6;
+
         spawnEnemy2_IQ1_Time = Time.time + 2;
         spawnEnemy2_IQ2_Time = Time.time + 4;
         spawnEnemy2_IQ3_Time = Time.time + 6;
@@ -60,6 +80,75 @@ public class EnemySpawnerExample : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Enemy 3
+        if (Time.time > spawnEnemy3_IQ1_Time)
+        {
+
+            //select random spawn line
+            GameObject spawnLine = spawnLines.transform.GetChild(Random.Range(0, spawnLines.transform.childCount)).gameObject;
+            for (int i = 0; i < spawnEnemy3_IQ1_numberOfMaxSpawns; i++)
+            {
+                Vector3 position = new Vector3(
+                        Random.Range(spawnLine.transform.GetChild(0).position.x, spawnLine.transform.GetChild(1).position.x),
+                        Random.Range(spawnLine.transform.GetChild(0).position.y, spawnLine.transform.GetChild(1).position.y),
+                        0
+                        );
+                GameObject enemy = Instantiate(enemy3_IQ1_Prefab, position, Quaternion.identity);
+                enemy.transform.parent = enemies.transform;
+                enemy.GetComponent<Enemy3_Controller>().player = player;
+                enemy.GetComponent<Enemy3_Controller>().GM = GM;
+                enemy.GetComponent<Enemy3_Controller>().enemyProjectiles = enemyProjectiles;
+                enemy.GetComponent<Enemy3_Controller>().path =
+                    enemyPaths.transform.GetChild(Random.Range(0, enemyPaths.transform.childCount)).gameObject;
+
+            }
+            spawnEnemy3_IQ1_Time = Time.time + spawnEnemy3_IQ1_Delay;
+        }
+
+        if (Time.time > spawnEnemy3_IQ2_Time)
+        {
+            GameObject spawnLine = spawnLines.transform.GetChild(Random.Range(0, spawnLines.transform.childCount)).gameObject;
+            for (int i = 0; i < spawnEnemy3_IQ2_numberOfMaxSpawns; i++)
+            {
+                Vector3 position = new Vector3(
+                          Random.Range(spawnLine.transform.GetChild(0).position.x, spawnLine.transform.GetChild(1).position.x),
+                          Random.Range(spawnLine.transform.GetChild(0).position.y, spawnLine.transform.GetChild(1).position.y),
+                          0
+                          );
+                GameObject enemy = Instantiate(enemy3_IQ2_Prefab, position, Quaternion.identity);
+                enemy.transform.parent = enemies.transform;
+                enemy.GetComponent<Enemy3_Controller>().player = player;
+                enemy.GetComponent<Enemy3_Controller>().GM = GM;
+                enemy.GetComponent<Enemy3_Controller>().enemyProjectiles = enemyProjectiles;
+                enemy.GetComponent<Enemy3_Controller>().path =
+                    enemyPaths.transform.GetChild(Random.Range(0, enemyPaths.transform.childCount)).gameObject;
+            }
+            spawnEnemy3_IQ2_Time = Time.time + spawnEnemy3_IQ2_Delay;
+        }
+
+        if (Time.time > spawnEnemy3_IQ3_Time)
+        {
+            GameObject spawnLine = spawnLines.transform.GetChild(Random.Range(0, spawnLines.transform.childCount)).gameObject;
+
+            for (int i = 0; i < spawnEnemy3_IQ3_numberOfMaxSpawns; i++)
+            {
+                Vector3 position = new Vector3(
+                          Random.Range(spawnLine.transform.GetChild(0).position.x, spawnLine.transform.GetChild(1).position.x),
+                          Random.Range(spawnLine.transform.GetChild(0).position.y, spawnLine.transform.GetChild(1).position.y),
+                          0
+                          );
+                GameObject enemy = Instantiate(enemy3_IQ3_Prefab, position, Quaternion.identity);
+                enemy.transform.parent = enemies.transform;
+                enemy.GetComponent<Enemy3_Controller>().player = player;
+                enemy.GetComponent<Enemy3_Controller>().GM = GM;
+                enemy.GetComponent<Enemy3_Controller>().enemyProjectiles = enemyProjectiles;
+                enemy.GetComponent<Enemy3_Controller>().path =
+                    enemyPaths.transform.GetChild(Random.Range(0, enemyPaths.transform.childCount)).gameObject;
+            }
+            spawnEnemy3_IQ3_Time = Time.time + spawnEnemy3_IQ3_Delay;
+        }
+
+
         //Enemy 2
         if (Time.time > spawnEnemy2_IQ1_Time)
         {

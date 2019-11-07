@@ -11,12 +11,20 @@ public class PowerUpController : MonoBehaviour
     float rotationSpeed = 0.2f;
 
     int randomSelector;
-    string[] powerUpNames = new string[4] { "Invincibility", "HP", "Shield", "ScoreMultiplier" };
+    string[] powerUpNames = new string[6] { "Invincibility", "HP", "Shield", "ScoreMultiplier","NitroFuel","LaserFuel" };
 
     public bool invincible = false;
     public float health = 0;
     public float shield = 0;
+    public float nitroFuel = 0;
+    public float laserFuel = 0;
     public float scoreMultiplier = 0;
+
+    float healthAmount = 20;
+    float shieldAmount = 25;
+    float nitroFuelAmount = 40;
+    float laserFuelAmount = 30;
+    float scoreMultiplierAmount = 5;
 
     float restrictHorizontal = 12f;
     float restrictVertical = 7f;
@@ -31,13 +39,19 @@ public class PowerUpController : MonoBehaviour
                 invincible = true;
                 break;
             case 1:
-                health = 20;
+                health = healthAmount;
                 break;
             case 2:
-                shield = 20;
+                shield = shieldAmount;
                 break;
             case 3:
-                scoreMultiplier = 5;
+                scoreMultiplier = scoreMultiplierAmount;
+                break;
+            case 4:
+                nitroFuel = nitroFuelAmount;
+                break;
+            case 5:
+                laserFuel = laserFuelAmount;
                 break;
             default:
                 break;

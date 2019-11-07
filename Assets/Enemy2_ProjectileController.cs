@@ -21,6 +21,7 @@ public class Enemy2_ProjectileController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         Destroy(gameObject);
     }
 }

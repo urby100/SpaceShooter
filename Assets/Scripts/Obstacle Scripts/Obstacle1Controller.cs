@@ -54,4 +54,13 @@ public class Obstacle1Controller : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.name == "PlayerShield" || collision.gameObject.name == "PlayerShieldAttack")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

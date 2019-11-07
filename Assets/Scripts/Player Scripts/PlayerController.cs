@@ -6,13 +6,16 @@ public class PlayerController : MonoBehaviour
 {
 
     public GameManager GM;
+    PlayerAbilities playerAbilitiesScript;
     public bool invincible;
     float invincibleLasts = 4f;
     float invincibleTime;
 
     public float health = 100;
+    float healthRegenTick = 3;
 
     public float shield = 100;
+    float shieldRegenTick = 3;
 
     float damageTakeAmount = 10;
     float damageTickDelay = 0.05f;
@@ -21,17 +24,18 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        playerAbilitiesScript = GetComponent<PlayerAbilities>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        health = Mathf.Clamp(health + (healthRegenTick * Time.deltaTime), 0, 100);
+        shield = Mathf.Clamp(shield + (shieldRegenTick * Time.deltaTime), 0, 100);
         if (Time.time > invincibleTime)
         {
-            invincible = false;
+            invincible = playerAbilitiesScript.shieldAttackStart;
         }
-        //Debug.Log(health + " " + shield + " " + invincible);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -45,15 +49,11 @@ public class PlayerController : MonoBehaviour
         {
             PowerUpController powerUp = collision.gameObject.GetComponent<PowerUpController>();
             health = Mathf.Clamp(health + powerUp.health, 0, 100);
-            if (powerUp.health>0) {
-                GM.updateHealthBar();
-            }
 
             shield = Mathf.Clamp(shield + powerUp.shield, 0, 100);
-            if (powerUp.shield > 0) {
 
-                GM.updateShieldBar();
-            }
+            playerAbilitiesScript.laserFuel = Mathf.Clamp(playerAbilitiesScript.laserFuel + powerUp.laserFuel, 0, 100);
+            playerAbilitiesScript.nitroFuel = Mathf.Clamp(playerAbilitiesScript.nitroFuel + powerUp.nitroFuel, 0, 100);
             if (powerUp.invincible)
             {
                 invincible = true;
@@ -111,7 +111,5 @@ public class PlayerController : MonoBehaviour
             health -= damageTakeAmount;//
         }
         health = Mathf.Clamp(health, 0, 100);
-        GM.updateHealthBar();
-        GM.updateShieldBar();
     }
 }
