@@ -45,7 +45,7 @@ public class ObstacleSpawnerExample : MonoBehaviour
 
         if (Time.time > spawnObstacle1_Time)
         {
-            //spawnObstacle1();
+            spawnObstacle1();
             setSpawnInfoObstacle1();
         }
         if (Time.time > spawnObstacle2_Time)

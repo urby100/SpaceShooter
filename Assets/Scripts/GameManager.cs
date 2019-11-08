@@ -30,10 +30,7 @@ public class GameManager : MonoBehaviour
     float noDmgTakenMultiplierMax = 10;
     float noDmgTakenForXSeconds = 4f;
     float noDmgTakenTime;
-
-
-    float previousHealthPoints;
-    float previousShieldPoints;
+    
 
 
 
@@ -45,8 +42,6 @@ public class GameManager : MonoBehaviour
         addScoreTime = Time.time + addScoreEveryXSeconds;
         playerControllerScript = player.GetComponent<PlayerController>();
         playerAbilitiesScript = player.GetComponent<PlayerAbilities>();
-        previousHealthPoints = playerControllerScript.health;
-        previousShieldPoints = playerControllerScript.shield;
     }
 
     // Update is called once per frame
@@ -66,25 +61,6 @@ public class GameManager : MonoBehaviour
             AddScore(beingAliveMultiplier);
             addScoreTime = Time.time + addScoreEveryXSeconds;
         }
-        if ((playerControllerScript.health != previousHealthPoints &&
-            playerControllerScript.health > previousHealthPoints) ||
-            (playerControllerScript.shield != previousShieldPoints &&
-            playerControllerScript.shield > previousShieldPoints))
-        {
-            previousHealthPoints = playerControllerScript.health;
-            previousShieldPoints = playerControllerScript.shield;
-        }
-
-        if ((playerControllerScript.health != previousHealthPoints &&
-            playerControllerScript.health < previousHealthPoints) ||
-            (playerControllerScript.shield != previousShieldPoints &&
-            playerControllerScript.shield < previousShieldPoints))
-        {
-            noDmgTakenMultiplier = 1;
-            noDmgTakenTime = Time.time + noDmgTakenForXSeconds;
-            previousHealthPoints = playerControllerScript.health;
-            previousShieldPoints = playerControllerScript.shield;
-        }
         //Debug.Log(score + " " + noDmgTakenMultiplier);
     }
     public void AddScore(float multiplier)
@@ -95,5 +71,10 @@ public class GameManager : MonoBehaviour
     public void setNoDmgMultiplier(float addToScoreMultiplier)
     {
         noDmgTakenMultiplier = Mathf.Clamp(noDmgTakenMultiplier + addToScoreMultiplier, noDmgTakenMultiplierMin, noDmgTakenMultiplierMax);
+    }
+    public void resetScoreMultiplier()
+    {
+        noDmgTakenMultiplier = 1;
+        noDmgTakenTime = Time.time + noDmgTakenForXSeconds;
     }
 }

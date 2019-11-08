@@ -111,5 +111,6 @@ public class PlayerController : MonoBehaviour
             health -= damageTakeAmount;//
         }
         health = Mathf.Clamp(health, 0, 100);
+        GM.resetScoreMultiplier();
     }
 }
