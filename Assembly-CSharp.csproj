@@ -60,6 +60,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BossController.cs" />
+    <Compile Include="Assets\BossProjectileController.cs" />
+    <Compile Include="Assets\BossStage1Controller.cs" />
     <Compile Include="Assets\Enemy2_IQ1Controller.cs" />
     <Compile Include="Assets\Enemy2_IQ2Controller.cs" />
     <Compile Include="Assets\Enemy2_IQ3Controller.cs" />

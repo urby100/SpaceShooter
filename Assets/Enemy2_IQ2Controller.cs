@@ -18,7 +18,6 @@ public class Enemy2_IQ2Controller : MonoBehaviour
     public GameObject path;
     List<Transform> pathNodes = new List<Transform>();
     int nodeIterator = 0;
-    Vector3 lastPosition;
     float nodePathingAccuracy = 0.3f;
 
     public GameObject projectilePrefab;
