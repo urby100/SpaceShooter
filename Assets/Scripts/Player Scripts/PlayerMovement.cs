@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool restrictMove = false;
+
     Rigidbody2D rb;
 
     float movementSpeed = 10;
@@ -18,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (restrictMove) {
+            return;
+        }
         //keyboard controls
         float verticalMovement = Input.GetAxis("Vertical");
         float horizontalMovement = Input.GetAxis("Horizontal");

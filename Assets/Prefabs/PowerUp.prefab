@@ -94,9 +94,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  powerUpSprites:
+  - {fileID: 21300000, guid: 445f88758e3cee14f9137c6b11c358f3, type: 3}
+  - {fileID: 21300000, guid: fd2b1b8e407e7a545ac1ffa6da713aed, type: 3}
+  - {fileID: 21300000, guid: 0291e6865a091774192942e6ae05cbd4, type: 3}
+  - {fileID: 21300000, guid: 2113de031087df04f974948e399331a6, type: 3}
+  - {fileID: 21300000, guid: d5b341605b218154abec31c8df7db3a6, type: 3}
+  - {fileID: 21300000, guid: 45a8144612d3d2e40bc1023029c1188f, type: 3}
   invincible: 0
   health: 0
   shield: 0
+  nitroFuel: 0
+  laserFuel: 0
+  scoreMultiplier: 0
 --- !u!1 &2285100056575831029
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,7 +176,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c979d6ac4d271c146b862fe212aa0afd, type: 3}
-  m_Color: {r: 1, g: 0.9166666, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -60,32 +60,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BossController.cs" />
-    <Compile Include="Assets\BossProjectileController.cs" />
-    <Compile Include="Assets\BossStage1Controller.cs" />
-    <Compile Include="Assets\Enemy2_IQ1Controller.cs" />
-    <Compile Include="Assets\Enemy2_IQ2Controller.cs" />
-    <Compile Include="Assets\Enemy2_IQ3Controller.cs" />
-    <Compile Include="Assets\Enemy2_ProjectileController.cs" />
-    <Compile Include="Assets\Enemy3_Controller.cs" />
-    <Compile Include="Assets\Enemy3ProjectileController.cs" />
-    <Compile Include="Assets\Obstacle2Controller.cs" />
-    <Compile Include="Assets\PlayerShieldAttackProjectileController.cs" />
-    <Compile Include="Assets\PlayerShieldController.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossController.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossLaserProjectile2Controller.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossLaserProjectileController.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossProjectileController.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossStage1Controller.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossStage2Controller.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossStage3Controller.cs" />
+    <Compile Include="Assets\Scripts\Boss Scripts\BossStage4Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ1Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ2Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 1\Enemy1_IQ3Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 2\Enemy2_IQ1Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 2\Enemy2_IQ2Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 2\Enemy2_IQ3Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 2\Enemy2_ProjectileController.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 3\Enemy3_Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy Scripts\Enemy 3\Enemy3ProjectileController.cs" />
     <Compile Include="Assets\Scripts\Enemy Scripts\EnemySpawnerExample.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Obstacle Scripts\Obstacle1Controller.cs" />
+    <Compile Include="Assets\Scripts\Obstacle Scripts\Obstacle2Controller.cs" />
     <Compile Include="Assets\Scripts\Obstacle Scripts\ObstacleSpawnerExample.cs" />
+    <Compile Include="Assets\Scripts\Obstacle Scripts\WarningSignController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerAbilities.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerAttack1ProjectileController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\PlayerShieldAttackProjectileController.cs" />
+    <Compile Include="Assets\Scripts\Player Scripts\PlayerShieldController.cs" />
     <Compile Include="Assets\Scripts\PowerUp Scripts\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\PowerUp Scripts\spawnPowerUp.cs" />
-    <Compile Include="Assets\WarningSignController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity Projects/Space Shooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

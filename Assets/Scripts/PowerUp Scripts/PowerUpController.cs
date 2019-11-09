@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
     public GameObject player;
+    public List<Sprite> powerUpSprites;
 
     Rigidbody2D rb;
     float movementSpeed = 3;
@@ -33,6 +34,7 @@ public class PowerUpController : MonoBehaviour
     void Start()
     {
         randomSelector = Random.Range(0, powerUpNames.Length);
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = powerUpSprites[randomSelector];
         switch (randomSelector)
         {
             case 0:

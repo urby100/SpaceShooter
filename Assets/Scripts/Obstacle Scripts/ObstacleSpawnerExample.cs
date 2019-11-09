@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ObstacleSpawnerExample : MonoBehaviour
 {
+    public bool spawnObstacles1 = true;
+    public bool spawnObstacles2 = true;
+
     public GameObject warningSignPrefab;
     public GameObject obstacle1Prefab;
     public GameObject obstacle2Prefab;
@@ -13,12 +16,12 @@ public class ObstacleSpawnerExample : MonoBehaviour
     float warnXSecondsBeforeSpawn = 2f;
     float warnObstacle2SpawnTime;
 
-    float spawnObstacle1_Delay = 10f;
+    public float spawnObstacle1_Delay = 10f;
     float spawnObstacle1_Time;
     int spawnObstacle1_numberOfMinSpawns = 4;
     int spawnObstacle1_numberOfMaxSpawns = 8;
 
-    float spawnObstacle2_Delay = 4f;
+    public float spawnObstacle2_Delay = 18f;
     float spawnObstacle2_Time;
     int spawnObstacle2_numberOfMinSpawns = 2;
     int spawnObstacle2_numberOfMaxSpawns = 4;
@@ -36,8 +39,14 @@ public class ObstacleSpawnerExample : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        setSpawnInfoObstacle1();
-        setSpawnInfoObstacle2();
+        if (spawnObstacles1)
+        {
+            setSpawnInfoObstacle1();
+        }
+        if (spawnObstacles2)
+        {
+            setSpawnInfoObstacle2();
+        }
     }
 
     void FixedUpdate()
@@ -45,16 +54,25 @@ public class ObstacleSpawnerExample : MonoBehaviour
 
         if (Time.time > spawnObstacle1_Time)
         {
-            spawnObstacle1();
-            setSpawnInfoObstacle1();
+            if (spawnObstacles1)
+            {
+                spawnObstacle1();
+                setSpawnInfoObstacle1();
+            }
         }
         if (Time.time > spawnObstacle2_Time)
         {
-            spawnObstacle2();
-            setSpawnInfoObstacle2();
+            if (spawnObstacles2)
+            {
+                spawnObstacle2();
+                setSpawnInfoObstacle2();
+            }
         }
         if (Time.time > warnObstacle2SpawnTime && !warnedObstacle2Spawn) {
-            SpawnWarningSignForObstacle2();
+            if (spawnObstacles2)
+            {
+                SpawnWarningSignForObstacle2();
+            }
         }
         
     }

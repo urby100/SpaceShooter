@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Image healthBar;
+    public Image invincibleBar;
     public Image nitroFuelBar;
     public Image laserFuelBar;
     public Image shieldBar;
@@ -47,6 +48,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (playerControllerScript.invincible)
+        {
+            invincibleBar.fillAmount = 1;
+        }
+        else
+        {
+            invincibleBar.fillAmount = 0;
+        }
         nitroFuelBar.fillAmount = playerAbilitiesScript.nitroFuel / 100;
         laserFuelBar.fillAmount = playerAbilitiesScript.laserFuel / 100;
         shieldBar.fillAmount = playerControllerScript.shield / 100;

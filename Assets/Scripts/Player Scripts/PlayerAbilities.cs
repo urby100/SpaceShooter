@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public bool restrictAbilities = false;
     public GameObject playerShieldAttackPrefab;
 
     Rigidbody2D rb;
@@ -62,7 +63,11 @@ public class PlayerAbilities : MonoBehaviour
         Vector3 nitroFlameSize = nitroFlame.transform.localScale;
         nitroFlameSize.y = nitroFlameMaxSize - ((nitroMaxFuel - nitroFuel) / 100) * (nitroFlameMaxSize - nitroFlameMinSize);
         nitroFlame.transform.localScale = nitroFlameSize;
-        if (Input.GetKey(KeyCode.LeftShift) && !nitroCooldown)
+
+
+        laserFuel = Mathf.Clamp(laserFuel + (laserRegenTick * Time.deltaTime), laserMinFuel, laserMaxFuel);
+
+        if (Input.GetKey(KeyCode.LeftShift) && !nitroCooldown && !restrictAbilities)
         {
             nitroFuel = Mathf.Clamp(nitroFuel - (nitroWasteTick * Time.deltaTime), nitroMinFuel, nitroMaxFuel);
             if (nitroFuel != 0)
@@ -83,7 +88,7 @@ public class PlayerAbilities : MonoBehaviour
                 nitroCooldown = false;
             }
         }
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0) && !restrictAbilities)
         {
             if (Time.time > attack1NextAttack)
             {
@@ -93,8 +98,7 @@ public class PlayerAbilities : MonoBehaviour
             }
         }
 
-        laserFuel = Mathf.Clamp(laserFuel + (laserRegenTick * Time.deltaTime), laserMinFuel, laserMaxFuel);
-        if (Input.GetKey(KeyCode.Mouse1) && !laserAttackCooldown)
+        if (Input.GetKey(KeyCode.Mouse1) && !laserAttackCooldown && !restrictAbilities)
         {
             laserFuel = Mathf.Clamp(laserFuel - (laserWasteTick * Time.deltaTime), laserMinFuel, laserMaxFuel);
             if (laserFuel != 0)
@@ -117,7 +121,7 @@ public class PlayerAbilities : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !restrictAbilities)
         {
             if (playerCont.shield >= minShieldToAttack && !shieldAttackStart)
             {
