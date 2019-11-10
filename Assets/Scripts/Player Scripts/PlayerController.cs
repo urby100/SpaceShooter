@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     float damageTakeAmount = 10;
     float damageTickDelay = 0.05f;
     float damageTickTime;
+    
+    public bool invulnerableCheatCode = false;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +34,23 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (health <= 0) {
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.T)){
+            invulnerableCheatCode = !invulnerableCheatCode;
+        }
+
+
+
         health = Mathf.Clamp(health + (healthRegenTick * Time.deltaTime), 0, 100);
         shield = Mathf.Clamp(shield + (shieldRegenTick * Time.deltaTime), 0, 100);
         if (Time.time > invincibleTime)
         {
             invincible = playerAbilitiesScript.shieldAttackStart;
+        }
+        if (invulnerableCheatCode) {
+            invincible = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
