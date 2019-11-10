@@ -147,10 +147,11 @@ public class BossStage2Controller : MonoBehaviour
 
 
         //scale front laser
-        float distance = Mathf.Abs(rightBossLaser.transform.localPosition.x - leftBossLaser.transform.localPosition.x);
+        float distance = Vector3.Distance(rightBossLaser.transform.GetChild(0).transform.position, leftBossLaser.transform.GetChild(0).transform.position);
+        
         frontBossLaser.transform.localScale =
             new Vector3(frontBossLaser.transform.localScale.x,
-            distance,
+            distance / 4,
             frontBossLaser.transform.localScale.z);
 
         //nastavimo oddaljenost laserjev

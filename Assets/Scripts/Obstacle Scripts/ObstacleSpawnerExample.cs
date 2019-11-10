@@ -18,16 +18,16 @@ public class ObstacleSpawnerExample : MonoBehaviour
 
     public float spawnObstacle1_Delay = 10f;
     float spawnObstacle1_Time;
-    int spawnObstacle1_numberOfMinSpawns = 4;
-    int spawnObstacle1_numberOfMaxSpawns = 8;
+    public int spawnObstacle1_numberOfMinSpawns = 4;
+    public int spawnObstacle1_numberOfMaxSpawns = 8;
 
     public float spawnObstacle2_Delay = 18f;
     float spawnObstacle2_Time;
-    int spawnObstacle2_numberOfMinSpawns = 2;
-    int spawnObstacle2_numberOfMaxSpawns = 4;
+    public int spawnObstacle2_numberOfMinSpawns = 2;
+    public int spawnObstacle2_numberOfMaxSpawns = 4;
 
-    float spawnOffsetFromCenter_axisX = 5f;
-    float spawnOffsetFromCenter_axisY = 2.5f;
+    public float spawnOffsetFromCenter_axisX = 5f;
+    public float spawnOffsetFromCenter_axisY = 2.5f;
 
     List<Vector3> obstacle1SpawnPositions;
     List<Vector2> obstacle1DirectionList;

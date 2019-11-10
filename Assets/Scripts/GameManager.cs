@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public Image healthBar;
     public Image invincibleBar;
+    public Image invincibleBar2;
     public Image nitroFuelBar;
     public Image laserFuelBar;
     public Image shieldBar;
@@ -51,10 +52,12 @@ public class GameManager : MonoBehaviour
         if (playerControllerScript.invincible)
         {
             invincibleBar.fillAmount = 1;
+            invincibleBar2.fillAmount = 1;
         }
         else
         {
             invincibleBar.fillAmount = 0;
+            invincibleBar2.fillAmount = 0;
         }
         nitroFuelBar.fillAmount = playerAbilitiesScript.nitroFuel / 100;
         laserFuelBar.fillAmount = playerAbilitiesScript.laserFuel / 100;

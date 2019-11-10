@@ -91,6 +91,8 @@
     <Compile Include="Assets\Scripts\Player Scripts\PlayerShieldController.cs" />
     <Compile Include="Assets\Scripts\PowerUp Scripts\PowerUpController.cs" />
     <Compile Include="Assets\Scripts\PowerUp Scripts\spawnPowerUp.cs" />
+    <Compile Include="Assets\SpriteShadow.cs" />
+    <None Include="Assets\Shaders\Sprites-SolidCol.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Unity Projects/Space Shooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

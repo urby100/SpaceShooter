@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PowerUpController : MonoBehaviour
 {
+    public ParticleSystem effect;
     public GameObject player;
     public List<Sprite> powerUpSprites;
 
@@ -62,6 +63,10 @@ public class PowerUpController : MonoBehaviour
         gameObject.name = powerUpNames[randomSelector] + "PowerUp";
         rb = GetComponent<Rigidbody2D>();
         setPath();
+
+         Color MyPixel = powerUpSprites[randomSelector].texture.GetPixel(0, 0);
+         var mainPS = effect.main;
+         mainPS.startColor = MyPixel;
     }
 
     void FixedUpdate()

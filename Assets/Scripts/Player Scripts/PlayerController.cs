@@ -73,6 +73,19 @@ public class PlayerController : MonoBehaviour
             takeDamage();
         }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy")
+               || collision.gameObject.layer == LayerMask.NameToLayer("EnemyProjectiles")
+               || collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            if (Time.time > damageTickTime)
+            {
+                takeDamage();
+                damageTickTime = Time.time + damageTickDelay;
+            }
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy")

@@ -42,7 +42,7 @@ public class BossLaserProjectile2Controller : MonoBehaviour
         }
         laser.SetActive(false);
         GetComponent<BoxCollider2D>().enabled = false;
-        transform.rotation = boss.transform.rotation * Quaternion.Euler(0, 0, 90);
+        transform.rotation = boss.transform.rotation;
         GetComponent<BoxCollider2D>().enabled = true;
         laser.SetActive(true);
     }
@@ -67,7 +67,7 @@ public class BossLaserProjectile2Controller : MonoBehaviour
                     GetComponent<BoxCollider2D>().enabled = false;
                 }
             }
-            transform.rotation = boss.transform.rotation * Quaternion.Euler(0, 0, 90);
+            transform.rotation = boss.transform.rotation;
         }
         else
         {
@@ -89,7 +89,7 @@ public class BossLaserProjectile2Controller : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            transform.rotation = boss.transform.rotation * Quaternion.Euler(0, 0, -90);
+            transform.rotation = boss.transform.rotation * Quaternion.Euler(0, 0, -180);
         }
 
         if (setLaser)

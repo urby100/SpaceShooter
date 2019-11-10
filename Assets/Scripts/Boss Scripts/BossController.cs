@@ -55,7 +55,6 @@ public class BossController : MonoBehaviour
     
     void FixedUpdate()
     {
-        Debug.Log(health);
         if (turnFasterAfterStageEnd && Time.time > turnFasterTime) {
             bossStages[i].SetActive(true);
             turnFasterAfterStageEnd = false;
