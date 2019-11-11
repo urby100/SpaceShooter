@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Image laserFuelBar;
     public Image shieldBar;
     public Text scoreText;
+    public Text timeText;
 
     public GameObject player;
     PlayerController playerControllerScript;
@@ -36,17 +37,20 @@ public class GameManager : MonoBehaviour
     
 
 
-
     // Start is called before the first frame update
     void Start()
     {
+        
         noDmgTakenMultiplier = 1;
         noDmgTakenTime = Time.time + noDmgTakenForXSeconds;
         addScoreTime = Time.time + addScoreEveryXSeconds;
         playerControllerScript = player.GetComponent<PlayerController>();
         playerAbilitiesScript = player.GetComponent<PlayerAbilities>();
     }
-
+    private void Update()
+    {
+        timeText.text = (((int)Time.timeSinceLevelLoad).ToString()+"s").PadLeft(10,' ');
+    }
     // Update is called once per frame
     void FixedUpdate()
     {

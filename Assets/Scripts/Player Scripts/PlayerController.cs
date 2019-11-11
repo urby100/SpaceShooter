@@ -30,15 +30,19 @@ public class PlayerController : MonoBehaviour
     {
         playerAbilitiesScript = GetComponent<PlayerAbilities>();
     }
+    private void Update()
+    {
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            invulnerableCheatCode = !invulnerableCheatCode;
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         if (health <= 0) {
             return;
-        }
-        if (Input.GetKeyDown(KeyCode.T)){
-            invulnerableCheatCode = !invulnerableCheatCode;
         }
 
 

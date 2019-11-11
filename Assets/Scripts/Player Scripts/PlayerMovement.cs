@@ -20,9 +20,15 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (restrictMove) {
-            return;
-        }
+        //mouse controls
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        //ko dva vektorja odšteješ dobiš smer
+        Vector2 direction = new Vector2(
+            mousePosition.x - transform.position.x,
+            mousePosition.y - transform.position.y);
+        transform.up = direction;
+
         //keyboard controls
         float verticalMovement = Input.GetAxis("Vertical");
         float horizontalMovement = Input.GetAxis("Horizontal");
@@ -48,15 +54,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 moveVector = new Vector2(horizontalMovement, verticalMovement);
 
-        rb.velocity = moveVector * movementSpeed;
+        if (!restrictMove)
+        {
+            rb.velocity = moveVector * movementSpeed;
+        }
+        
 
-        //mouse controls
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        //ko dva vektorja odšteješ dobiš smer
-        Vector2 direction = new Vector2(
-            mousePosition.x - transform.position.x,
-            mousePosition.y - transform.position.y);
-        transform.up = direction;
     }
 }
