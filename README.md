@@ -21,7 +21,7 @@ ___
 <img src="readmegifs/speedy.gif" width=500px height=250px></img>
 
 
-### Player can use up his shield as a special attack, that destroys everything surrouding him.
+### Player can use up his shield as a special attack, that destroys everything surrounding them.
 <img src="readmegifs/shield.gif" width=500px height=250px></img>
 
 
