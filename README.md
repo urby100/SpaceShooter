@@ -35,9 +35,9 @@ ___
 ## There's 3 types of enemies.
 | Enemy | Description |
 | --- | --- |
-| <img src="Assets/sprites/Enemies/Enemy1/enemy1__IQ3.png" width=50px height=50px></img> | Follows player movement. |
-| <img src="Assets/sprites/Enemies/Enemy2/enemy2_IQ3.png" width=50px height=50px></img> | Shoots projectiles towards player. |
-| <img src="Assets/sprites/Enemies/Enemy3/enemy3_IQ3.png" width=50px height=50px></img> | Shoots homing missiles towards player. |
+| <img src="Assets/Sprites/Enemies/Enemy1/enemy1__IQ3.png" width=50px height=50px></img> | Follows player movement. |
+| <img src="Assets/Sprites/Enemies/Enemy2/enemy2_IQ3.png" width=50px height=50px></img> | Shoots projectiles towards player. |
+| <img src="Assets/Sprites/Enemies/Enemy3/enemy3_IQ3.png" width=50px height=50px></img> | Shoots homing missiles towards player. |
 #### Enemies have 3 difficulty levels(higher shooting freq, faster movement)
 
 <br/>
@@ -46,13 +46,13 @@ ___
 ## Enemies drop powerups.
 | Health  | Shield | Invincibility | Laser ammo | Speedup fuel | Score multiplier |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| <img src="Assets/sprites/Power%20Ups/power%20up_HP.png" width=20px height=20px></img>  | <img src="Assets/sprites/Power%20Ups/power%20up_Shield.png" width=20px height=20px ></img>  | <img src="Assets/sprites/Power%20Ups/power%20up_Invincibility.png" width=20px  height=20px ></img>  | <img src="Assets/sprites/Power%20Ups/power%20up_Laser%20Fuel.png" width=20px height=20px ></img>  | <img src="Assets/sprites/Power%20Ups/power%20up_Nitro%20Fuel.png" width=20px height=20px ></img>  | <img src="Assets/sprites/Power%20Ups/power%20up_Score%20Multiplier.png" width=20px  height=20px ></img>  |
+| <img src="Assets/Sprites/Power%20Ups/power%20up_HP.png" width=20px height=20px></img>  | <img src="Assets/Sprites/Power%20Ups/power%20up_Shield.png" width=20px height=20px ></img>  | <img src="Assets/Sprites/Power%20Ups/power%20up_Invincibility.png" width=20px  height=20px ></img>  | <img src="Assets/Sprites/Power%20Ups/power%20up_Laser%20Fuel.png" width=20px height=20px ></img>  | <img src="Assets/Sprites/Power%20Ups/power%20up_Nitro%20Fuel.png" width=20px height=20px ></img>  | <img src="Assets/Sprites/Power%20Ups/power%20up_Score%20Multiplier.png" width=20px  height=20px ></img>  |
 
 <br/>
 
 
 ## Boss
-<img src="Assets/sprites/Enemies/Boss/Boss_1.png" width=200px height=10%></img>
+<img src="Assets/Sprites/Enemies/Boss/Boss_1.png" width=200px height=10%></img>
 #### has 4 stages.
 
 <br/>
